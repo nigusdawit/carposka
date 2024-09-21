@@ -1,0 +1,165 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include this for consistent sizing */
+}
+
+/* Apply Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* Body Styling */
+body {
+    font-family: 'VT323', monospace;
+    background: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Match viewport height exactly */
+    width: 100vw; /* Match viewport width exactly */
+    color: #e8e8e8;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    filter: grayscale(50%) contrast(140%) brightness(50%);
+    margin: 0; /* Reset any default margins */
+    position: relative; /* Ensure positioning context for absolute elements */
+}
+
+/* Frame Styling */
+.frame {
+    position: absolute; /* Absolute positioning to cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background: url("pcframe.png") no-repeat center center; /* Center the background image */
+    background-size: cover; /* Ensure full coverage */
+    z-index: 1; /* Ensure it is above the canvas */
+    transform: scale(1.02); /* Scale up the frame slightly */
+}
+
+/* p5.js canvas styling */
+#matrix {
+    position: absolute; /* Ensure canvas is positioned correctly */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    z-index: 0; /* Ensure it is below the frame and text */
+}
+
+/* Position and resize the video to fit within the computer screen frame */
+.screen-video {
+    display: none; /* Hide the video initially */
+    position: absolute;
+    top: 10%; /* Adjust as needed */
+    left: 10%; /* Adjust as needed */
+    width: 80%; /* Adjust to fit the frame */
+    height: 80%; /* Adjust to fit the frame */
+    object-fit: cover; /* Maintains the aspect ratio */
+    z-index: 0; /* Ensure it's below the frame */
+    border-radius: 5px; /* Optional */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .frame {
+        width: 100vw; /* Extra size to ensure it fills the screen */
+        height: 100vh; /* Extra size to ensure it fills the screen */
+    }
+}
+.typing-text {
+    position: absolute; /* Position it wherever you want */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    font-size: 5vw; /* Responsive text size */
+    color: neon-green; /* Change to your desired neon color */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 1); /* Neon effect */
+    z-index: 3; /* Ensure it's above other elements */
+}
+.text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%);
+    font-size: 5vw; /* Responsive font size */
+    color: neon-green; /* Replace with a neon green color */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.8); /* Neon effect */
+    z-index: 2; /* Ensure it is above the frame */
+    display: none; /* Hidden by default */
+}
+/* Corrected neon green color styling */
+.text, .typing-text {
+    color: #39ff14; /* Hex code for neon green */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+    display: none; /* Hidden by default */
+}
+.typing-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5vw;
+    color: #00ff00; /* Adjust to a neon green color */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 1);
+    z-index: 3;
+}
+
+.fw-text {
+    font-size: 4vw; /* Adjust size for the second line */
+    color: #00ff00; /* Same neon green as above */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+    margin-top: 10px; /* Space between the two lines */
+
+}
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    display: block; /* Ensure it is displayed */
+    color: #39ff14;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+}
+
+.typing-text {
+    font-size: 5vw;
+    margin: 0; /* Remove margin to keep it centered */
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    display: block; /* Ensure it is displayed */
+    color: #39ff14;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+}
+
+.typing-text {
+    font-size: 5vw;
+    margin: 0; /* Remove margin to keep it centered */
+}
+
+.genesis-text, .fw-text {
+    font-size: 4vw;
+    margin: 10px 0 0 0; /* Space between the lines */
+}
+.purgatory-text {
+    font-size: 3.5vw; /* Adjust size as needed */
+    color: #39ff14; /* Same neon green */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
+    text-decoration: none; /* Remove underline */
+    margin-top: 10px; /* Space below FW24 */
+}
+
+.purgatory-text:hover {
+    text-decoration: underline; /* Optional: underline on hover */
+    cursor: pointer; /* Change cursor on hover */
+}
